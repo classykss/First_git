@@ -6,3 +6,4 @@ print("Division",10/2)
 //new 
 print("Exponentiation",2**3)
 print("Floor Division",10//3)
+print("Modulus",10%3)
