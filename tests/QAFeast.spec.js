@@ -9,5 +9,4 @@ test('Navigate to Demo Site', async ({ page }) => {
     await qaFeast.clickDemoSite();
     await qaFeast.TextBox();
     await qaFeast.Button();
-    
 });
