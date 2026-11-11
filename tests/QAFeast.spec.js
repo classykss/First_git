@@ -9,4 +9,6 @@ test('Navigate to Demo Site', async ({ page }) => {
     await qaFeast.clickDemoSite();
     await qaFeast.TextBox();
     await qaFeast.Button();
+    await qaFeast.RadioButton();
+    await qaFeast.checkbox();
 });
