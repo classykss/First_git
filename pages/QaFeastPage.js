@@ -35,8 +35,7 @@ class QaFeastPage {
         await expect(this.page.locator("input[value='Enter username']")).toHaveValue('Test User');
     }
 
-    async Button()
-    {
+    async Button() {
         await expect(this.page.locator("//label[text()='Button']")).toBeVisible();
         await this.page.locator("//label[text()='Button']").click();
         await expect(this.page.locator("button#button-1")).toBeEnabled();
@@ -45,6 +44,34 @@ class QaFeastPage {
         await expect(this.page.locator("button.disabled", { hasText: 'Order' })).toBeVisible();
     }
 
+    async RadioButton() {
+        await expect(this.page.locator("//label[text()='Radio Button']")).toBeVisible();
+        await this.page.locator("//label[text()='Radio Button']").click();
+        await expect(this.page.locator("//div[@class='radio']//label[text()='Male']")).toBeVisible();
+        await this.page.locator("//div[@class='radio']//label[text()='Male']").click();
+        await expect(this.page.locator("p.msgbox", { hasText: 'Male is selected' })).toBeVisible();
+        await expect(this.page.locator("//div[@class='radio']//label[text()='Female']")).toBeVisible();
+        await this.page.locator("//div[@class='radio']//label[text()='Female']").click();
+        await expect(this.page.locator("p.msgbox", { hasText: 'Female is selected' })).toBeVisible();
+    }
+
+    async checkbox() {
+        await expect(this.page.locator("//label[text()='Checkbox']")).toBeVisible();
+        await this.page.locator("//label[text()='Checkbox']").click();
+        await expect(this.page.locator("h2.page-title", { hasText: 'Checkbox' })).toBeVisible();
+        await expect(this.page.locator("input[name='reportchkbox_1']")).toBeVisible();
+        await this.page.locator("input[name='reportchkbox_1']").check();
+        await expect(this.page.locator("div.msgbox", { hasText: 'Summary report is selected.' })).toBeVisible();
+        await expect(this.page.locator("input[name='reportchkbox_2']")).toBeVisible();
+        await this.page.locator("input[name='reportchkbox_2']").check();
+        await expect(this.page.locator("div.msgbox", { hasText: 'Summary report,Detailed report is selected.' })).toBeVisible();
+        await expect(this.page.locator("input[name='reportchkbox_3']")).toBeVisible();
+        await this.page.locator("input[name='reportchkbox_3']").check();
+        await expect(this.page.locator("div.msgbox", { hasText: 'Summary report,Detailed report,Weekly report is selected.' })).toBeVisible();
+        await this.page.locator("input[name='reportchkbox_1']").uncheck();
+        await this.page.locator("input[name='reportchkbox_2']").uncheck();
+        await this.page.locator("input[name='reportchkbox_3']").uncheck();
+    }
 }
 
 export default QaFeastPage;
